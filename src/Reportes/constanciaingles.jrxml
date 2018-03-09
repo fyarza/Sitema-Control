@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Constanciaestudios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2751611f-a323-4576-a8bb-98855e4c56b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="nota" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="58" width="555" height="20" uuid="1822359a-3eb5-4b80-af8b-2b84f69c9de3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE ESTUDIOS PARA GRADUADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="38" width="555" height="20" uuid="87d9260f-ad6c-469f-ba07-5fb2eae62634"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE INGENIERÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="18" width="555" height="20" uuid="d71bf979-8404-4156-b101-0c69f6f974ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE CARABOBO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="511" height="51" uuid="fd68c38a-ebcc-47c3-b66b-2bd66b57430d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Calligraphy" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Constancia]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="229" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="0" width="516" height="229" uuid="decb3b81-7516-4f2c-add8-64e2976cc26a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[El Director de Control de Estudios de la Facultad de Ingeniería de la Universidad de Carabobo, hace constar por medio de la presente que el (la) ciudadano(a):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="54" width="138" height="20" uuid="a0d8c157-3d78-4325-b05d-b49aa7d94a09"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="54" width="341" height="20" uuid="1f3d4f91-9a1c-405e-a452-33655c2bc8b5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="92" width="181" height="20" uuid="27634b4f-68af-4939-80bd-657b7ef3be74"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Presento y aprobó en la Fecha: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="54" width="22" height="20" uuid="a492727c-682b-4398-b63f-620fe68b3cbf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CI: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="196" y="92" width="100" height="20" uuid="3bf2328a-c186-4c9d-9d7e-697ad89190d7"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="264" y="92" width="153" height="20" uuid="5c5b5099-d051-4908-8a9e-81d5d41f9754"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Con una  calificacion de ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="92" width="357" height="20" uuid="fff70369-3464-4890-b5bf-02bde0b1387e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="112" width="511" height="70" uuid="ccb98e0c-3841-4dd7-bb7e-4925dd5df231"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[El Examen de Suficiencia del Dominio Instrumental del Idioma INGLES para Alumnos "NO CURSANTES", que se realiza en esta Área de Estudios. ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="164" splitType="Stretch">
+			<staticText>
+				<reportElement x="171" y="140" width="233" height="24" uuid="27639498-4640-435f-bb61-825e22fa85c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Director de Control de Estudios]]></text>
+			</staticText>
+			<image>
+				<reportElement x="240" y="89" width="305" height="52" uuid="8ed6768f-977c-4471-aaa3-d19b16b9e45a"/>
+				<imageExpression><![CDATA["C:\\firmaconstancia\\firma carlos brito limpia.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="31" y="0" width="511" height="30" uuid="5cf66957-61a1-459d-9549-b4991382f431"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Constancia que se expide en la ciudad de Valencia, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="116" width="233" height="24" uuid="db086575-ee54-43d3-a55d-90b3da2e9531"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prof. Carlos Brito]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="322" y="8" width="229" height="20" uuid="a0097d97-4452-40f6-b3a1-d7933bd15813"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

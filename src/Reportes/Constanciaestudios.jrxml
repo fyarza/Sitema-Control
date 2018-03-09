@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Constanciaestudios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2751611f-a323-4576-a8bb-98855e4c56b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="280"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="programa" class="java.lang.String"/>
+	<parameter name="cohorte" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="nac" class="java.lang.String"/>
+	<parameter name="estatus" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="58" width="555" height="20" uuid="1822359a-3eb5-4b80-af8b-2b84f69c9de3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE ESTUDIOS PARA GRADUADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="38" width="555" height="20" uuid="87d9260f-ad6c-469f-ba07-5fb2eae62634"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE INGENIERÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="18" width="555" height="20" uuid="d71bf979-8404-4156-b101-0c69f6f974ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE CARABOBO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="147" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="14" width="555" height="23" uuid="fd68c38a-ebcc-47c3-b66b-2bd66b57430d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSTANCIA DE ESTUDIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="66" width="512" height="40" uuid="11e8fb57-b41c-4b52-a1a4-5d3b770ceb55"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[El Director de  Control de Estudios de la  Facultad de Ingeniería de la Universidad de Carabobo, hace constar que el (la) ciudadano(a) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="373" y="118" width="138" height="20" uuid="f9d25b14-c40f-440d-9fbe-fd71f3390948"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="117" width="265" height="20" uuid="73f5d643-4f12-434f-8de0-74f4f6567272"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="118" width="27" height="20" uuid="88c205ce-dae8-4c42-bd25-e2b067831d82"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nac}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="512" height="40" uuid="1100f556-2d0d-47ef-a257-e6336fd1900c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[Es alumno                        en el Área de Estudios de Postgrado en el siguiente programa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="49" width="554" height="20" uuid="196e72a3-6168-45e9-ab6b-8751d08ef513"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{programa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="80" width="512" height="40" uuid="161e4ca3-13cd-4b45-96fe-859c2c58ef62"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[En el periodo académico ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="93" width="100" height="25" uuid="b4bb79cd-7c57-489b-8dd4-e2ecfcfc9d56"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cohorte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="13" width="100" height="20" uuid="b91afe51-5164-484e-bb20-16d272d6114a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{estatus}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="9" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="164" splitType="Stretch">
+			<textField>
+				<reportElement x="310" y="10" width="216" height="20" uuid="42b45c78-aa95-411b-91a3-86c1bac81212"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="171" y="92" width="221" height="39" uuid="27639498-4640-435f-bb61-825e22fa85c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[                                                Ing.Carlos Brito                                                   Director de Control de Estudios]]></text>
+			</staticText>
+			<image>
+				<reportElement x="228" y="59" width="305" height="52" uuid="8ed6768f-977c-4471-aaa3-d19b16b9e45a"/>
+				<imageExpression><![CDATA["C:\\firmaconstancia\\firma carlos brito limpia.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="40" uuid="5cf66957-61a1-459d-9549-b4991382f431"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[       Constancia que se expide en la ciudad de Valencia, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="138" width="553" height="20" uuid="9280ab1b-3f71-445c-b2c4-15f02b214da0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ PARA USO EXTERNO NECESITA  LA CERTIFICACIÓN POR EL SECRETARIO]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

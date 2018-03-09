@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Constanciaestudios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2751611f-a323-4576-a8bb-98855e4c56b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="nota" class="java.lang.String"/>
+	<parameter name="programa" class="java.lang.String"/>
+	<parameter name="apellido" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="58" width="555" height="20" uuid="1822359a-3eb5-4b80-af8b-2b84f69c9de3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE ESTUDIOS PARA GRADUADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="38" width="555" height="20" uuid="87d9260f-ad6c-469f-ba07-5fb2eae62634"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE INGENIERÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="18" width="555" height="20" uuid="d71bf979-8404-4156-b101-0c69f6f974ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE CARABOBO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="511" height="51" uuid="fd68c38a-ebcc-47c3-b66b-2bd66b57430d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Calligraphy" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Constancia]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="533" height="152" uuid="decb3b81-7516-4f2c-add8-64e2976cc26a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Quien suscribe. Dr Demetrio Rey Lago, en mi caráter de Director de Postgrado de la Facultad de Ingeniería de la Universidad de Carabobo, hace constar por medio de la presente, que la modalidad de enseñanza-aprendizaje contemplada en el plan de estudios del Programa MAESTRIA EN INGENIERIA MECANICA cursada por DAVID ALBERTO OJEDA PEÑA CI: 9.653.947 en los periodos 03-2003 al 02-2005 en la Facultad de Ingeniería de la Universidad de Carabobo fue de MODALIDAD PRESENCIAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="164" splitType="Stretch">
+			<staticText>
+				<reportElement x="171" y="140" width="233" height="24" uuid="27639498-4640-435f-bb61-825e22fa85c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Director]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="0" width="511" height="30" uuid="5cf66957-61a1-459d-9549-b4991382f431"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Constancia que se expide en la ciudad de Valencia, 03 de Abril del 2017]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="116" width="233" height="24" uuid="db086575-ee54-43d3-a55d-90b3da2e9531"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prof. Demetrio Rey Lago, Dr.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

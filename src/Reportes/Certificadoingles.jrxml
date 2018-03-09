@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificadoingles" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b28119fa-9ead-4a1c-bc18-e26c12999fb8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="nota" class="java.lang.String"/>
+	<parameter name="periodo" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="116">
+				<staticText>
+					<reportElement x="115" y="36" width="166" height="36" uuid="cf3f7179-9a77-46d3-ba26-8dc80a241573"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<text><![CDATA[Que se otorga a:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="115" y="72" width="166" height="34" uuid="d5405d0f-9733-4fa8-89b9-ea64c88415b4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<text><![CDATA[Cédula de Identidad: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="271" y="36" width="447" height="36" uuid="ab09c977-f7c3-4eef-91cc-6c9b7d22f304"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="18" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="271" y="72" width="331" height="31" uuid="bed13b1d-36a8-4205-a86c-e2d450e3b7d3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="18" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{cedula}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="53">
+				<staticText>
+					<reportElement x="115" y="0" width="249" height="27" uuid="a1fdcc47-032a-46ac-b332-6acd2ab09647"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<text><![CDATA[Duración de: 60 Horas]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="386" y="28" width="308" height="23" forecolor="#000000" uuid="fbde3b3f-e75f-46c5-87ac-e4363183643e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="318" y="31" width="100" height="20" uuid="1cced244-330b-4e2f-ae9f-ba3020f7f216"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valencia,]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="79">
+				<staticText>
+					<reportElement x="115" y="12" width="221" height="20" uuid="95230e57-cdb7-4e98-978a-c547018b002f"/>
+					<textElement>
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<text><![CDATA[Por Haber aprobado el Curso: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="329" y="1" width="473" height="31" uuid="707b816a-1cc1-4775-9a8c-8d0bcbd10552"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Times New Roman" size="22" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA["INGLÉS, DOMINIO INSTRUMENTAL"]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="115" y="35" width="221" height="20" uuid="6106821f-6e88-4177-8215-34190228f84c"/>
+					<textElement>
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<text><![CDATA[Con una calificación de ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="291" y="35" width="471" height="20" uuid="1c23ae0a-fdcc-45d7-af6d-f51fa53a2d4c"/>
+					<textElement>
+						<font fontName="Arial" size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nota}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="116" y="58" width="220" height="20" uuid="f2f8b4bc-2bec-4b77-8dac-e6e4e7d5d681"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<text><![CDATA[Realizado en el periodo: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="292" y="57" width="411" height="20" uuid="738d7cde-a6fb-4e4f-8f18-08bb7d76673a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{periodo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="153" y="-14" width="566" height="151" uuid="41fee35e-3e6d-431b-af49-7808cf298f96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="32" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE CARABOBO FACULTAD DE INGENIERÍA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="51" y="0" width="269" height="126" uuid="21ef0487-2e00-4224-b1cf-086e1f0ddf25"/>
+				<imageExpression><![CDATA["C:\\firmaconstancia\\logouc.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="697" y="0" width="245" height="126" uuid="0f93a90b-449c-4016-ae40-fe5d0d0c126a"/>
+				<imageExpression><![CDATA["C:\\firmaconstancia\\logopostgrado.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="57" y="0" width="745" height="37" forecolor="#000000" uuid="b27084ef-4ff5-498c-8422-568dd568004c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Old English Text MT" size="36" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Constancia de Aprobación]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="107" y="49" width="193" height="22" uuid="67035a4b-f766-43ce-81ae-0e0211e9b670"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Facultad de Ingeniería]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="29" width="193" height="20" uuid="5031ec67-2e9f-45a9-9983-ab357985d6b2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Decano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="9" width="193" height="20" uuid="cf15b6bb-fb92-47cc-b70f-7baf1d3f6fbd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14"/>
+				</textElement>
+				<text><![CDATA[Prof. José Luis Nazar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="31" width="193" height="20" uuid="c85510aa-8065-44dd-952e-ba0700d4d40e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14"/>
+				</textElement>
+				<text><![CDATA[Prof. Torres M. María del R.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="51" width="193" height="20" uuid="cfc4cff7-04d5-4340-928a-0d079af93774"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coordinador(a)]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="31" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="019808cc-edd8-469f-a54e-80906ea803d5"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
