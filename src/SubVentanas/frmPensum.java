@@ -75,15 +75,14 @@ public class frmPensum extends javax.swing.JFrame {
     ValidarLetras letra;
     File folder;
     ProgramaObj programa;
+    String rutaportada;
     public frmPensum() {
         initComponents();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.modelopensum=((DefaultTableModel)this.tabla_materias.getModel());
          inicio();
-          
-        //cargarprograma();
-        
-       
+          rutaportada="C:\\firmaconstancia\\portadas\\matematicaycomputacion.pdf";
+        cargarprograma();
     }
     
     
@@ -537,7 +536,7 @@ public class frmPensum extends javax.swing.JFrame {
                 break;
                case "portada":
                 OutputStream outputPOR = new FileOutputStream(ruta+"Portada.pdf");   
-                estampaPDF("C:\\firmaconstancia\\portadas\\matematicaycomputacion.pdf", outputPOR,generarcedula()+" "+txt_nombre.getText());
+                estampaPDF(rutaportada, outputPOR,generarcedula()+" "+txt_nombre.getText());
                 resul=true;
                 
                break;
@@ -972,19 +971,15 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addComponent(btn_agregarmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(68, 68, 68)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cpensum)
                     .addComponent(cportada))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(cvigenciasing)
-                        .addGap(27, 27, 27))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(cvigencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(cvigencia)
+                    .addComponent(cvigenciasing))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cprogramasa)
                     .addComponent(cmodalidade))
@@ -1133,8 +1128,61 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
             
             
             if (cportada.isSelected()){
+               if(cb_Progra.getItemCount()>0){
+                String[] arrayprograma = cb_Progra.getSelectedItem().toString().split(" -");
+                cargarmaterias(arrayprograma[0]);
+                switch(arrayprograma[0]){
+                    case"3"://Doctorado en Ambiente
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    case"4":// Doctorado en Quimica
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    case"5":// Doctorado en Bioingenieria
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    case"6":// Doctorado en Computo Aplicado
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    case"7": // Doctorado en Indstrial
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    case"8": // Doctorado en Electrica
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;                       
+                    case "9":
+                        rutaportada="C:\\firmaconstancia\\portadas\\mecanica.pdf";
+                    break;
+                    case "10":
+                         rutaportada="C:\\firmaconstancia\\portadas\\ambiental.pdf";
+                        break;
+                    case "11":
+                         rutaportada="C:\\firmaconstancia\\portadas\\procesos.pdf";
+                    break;
+                    case "12":
+                         rutaportada="C:\\firmaconstancia\\portadas\\industrial.pdf";
+                        break;
+                    case "13":
+                         rutaportada="C:\\firmaconstancia\\portadas\\electrica.pdf";
+                        break;
+                    case "14":
+                         rutaportada="C:\\firmaconstancia\\portadas\\matematicaycomputacion.pdf";
+                        break;
+                    case "15":
+                         rutaportada="C:\\firmaconstancia\\portadas\\gerenciaconstruccion.pdf";
+                        break;
+                    case "25"://Doctorado en Mecanica
+                        JOptionPane.showMessageDialog(pane, "Portada No Encontrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    default:
+                        rutaportada="C:\\firmaconstancia\\portadas\\mecanica.pdf";
+                     break;
+                        
+                }
                 procesararchivos(ruta,"portada");
              }
+                
+          }
             
             
             
