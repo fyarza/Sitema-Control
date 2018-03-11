@@ -12,7 +12,6 @@ import Clases.PDF_pensum;
 import Clases.ProgramaObj;
 import Clases.ValidarLetras;
 import Conexion.Clase_Conexion;
-import static SubVentanas.frmConstancia.reiniciarJTable;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -320,78 +319,7 @@ public class frmPensum extends javax.swing.JFrame {
       System.out.println(e.toString());
       }
  }
-    
-    public static void estampaPortada(String fileNameOrigen, OutputStream outputStream,String nombre) {
-    try {
-     String archivo_entrada = fileNameOrigen;
- 
-     PdfReader pdfReader = new PdfReader(archivo_entrada);
-     PdfStamper pdfStamper = new PdfStamper(pdfReader,outputStream);
- 
-     //Salida con clave de seguridad
-    //pdfStamper.setEncryption(null,"password".getBytes(),(PdfWriter.ALLOW_PRINTING|PdfWriter.ALLOW_COPY|PdfWriter.ALLOW_SCREENREADERS|PdfWriter.ALLOW_MODIFY_ANNOTATIONS|PdfWriter.ALLOW_FILL_IN), PdfWriter.STRENGTH128BITS);
-     float alto_pagina = 0;
-     float ancho_pagina = 0;
-     float angulo_marca_agua=0;
- 
-     //Por cada una de las páginas
-     for(int i=1; i<= pdfReader.getNumberOfPages(); i++){
- 
-          PdfContentByte content = pdfStamper.getOverContent(i);
-          PdfContentByte content_fondo = pdfStamper.getUnderContent(i);
- 
-          //Comprobamos si la página está en vertical o en horizontal
-          if((pdfReader.getPageRotation(i)==0)||(pdfReader.getPageRotation(i)==180))
-          {
-               alto_pagina = pdfReader.getPageSize(i).getHeight();
-               ancho_pagina = pdfReader.getPageSize(i).getWidth();
-               angulo_marca_agua = 5;
-          }
-          else //Si no es vertical, será apaisada
-          {
-               alto_pagina = pdfReader.getPageSize(i).getWidth();
-               ancho_pagina = pdfReader.getPageSize(i).getHeight();
-               angulo_marca_agua = 5;
-          }
-        
-         String texto_costadillo = nombre;
-         //Marca de agua
-         String marca_agua= nombre;
-         String Copia=marca_agua;
-         for(int g=0;g<5;g++){
-             marca_agua=marca_agua+" "+Copia;
-         }
-       
-         Phrase frase = new Phrase(texto_costadillo, FontFactory.getFont(BaseFont.HELVETICA, 8));
-         ColumnText.showTextAligned(content, Element.ALIGN_CENTER, frase, 30, alto_pagina/2, 90);
-         //Marca de agua en color gris, rotada y con relleno blanco
-         Phrase frase_marca_agua= new Phrase(marca_agua , FontFactory.getFont(BaseFont.HELVETICA, 12, Font.PLAIN));
-         
-         content_fondo.setColorFill(new BaseColor(215,215,215));
-         
-         for(int l=30;l<=alto_pagina;l=l+50){
-         for(int j=0;j<1;j++){
-         //ColumnText.showTextAligned(content_fondo, Element.ALIGN_RIGHT, frase_marca_agua,100*j+20,alto_pagina-l, angulo_marca_agua);
-         ColumnText.showTextAligned(content_fondo, Element.ALIGN_JUSTIFIED_ALL, frase_marca_agua,10+100*j ,alto_pagina-l, angulo_marca_agua);
-         }
-         }
-      }
-
-      pdfStamper.close();
-        pdfReader.close();
- 
-      } catch (IOException e) {
-          System.out.println(e.toString());
-       
-      } catch (DocumentException e) {
- 
-      System.out.println(e.toString());
-      }
- }
-    
-    
-
-     private void cargarprograma()
+private void cargarprograma()
   {
     try
     {
