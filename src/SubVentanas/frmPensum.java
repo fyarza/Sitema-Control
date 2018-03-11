@@ -173,8 +173,7 @@ public class frmPensum extends javax.swing.JFrame {
        }
      }
       
-      
-       private String buscarrhp(String cedula, String codigo)
+private String buscarrhp(String cedula, String codigo)
   {
     String resul = "";
     try
@@ -202,9 +201,6 @@ public class frmPensum extends javax.swing.JFrame {
     }
     return resul;
   }
-  
-    
-    
     private void inicio(){
          java.util.Date fecha = new Date();
          lb_fecha.setText(fecha.toLocaleString());
@@ -400,10 +396,10 @@ private void cargarprograma()
     
   }
      
-     private String generarcarpeta(String cedula, String nombre){
+private String generarcarpeta(String cedula, String nombre){
          String ruta="";
          try {
-             nombre=nombre.replaceAll("\\s", "");
+         nombre=nombre.replaceAll("\\s", "");
          ruta=System.getProperty("user.home")+"\\Desktop\\EntregaPensum\\"+cedula+"-"+nombre+"\\";
          folder= new File(ruta);
          folder.mkdirs(); // esto crea la carpeta java, independientemente que exista el path completo, si no existe crea toda la ruta necesaria
@@ -425,6 +421,24 @@ private void cargarprograma()
 		} // end try
 	} // end Eliminar
      
+     
+   private boolean Existe_fichero(String pArchivo) throws  Exception{
+       boolean resul=false;
+       try {	
+            File fichero = new File(pArchivo);
+        if (fichero.exists()){
+            resul=true;
+            System.out.println("El fichero " + pArchivo + " existe");
+        }else
+            System.out.println("Pues va a ser que no");
+        
+       } catch (Exception e) {
+	throw new Exception(e);
+	} // end try
+       return resul;
+   }
+   
+   
      private String generarcedula(){
         String resul="";
         if(this.cb_nacionalidad.getSelectedItem().toString().equals("Venezolano")){
