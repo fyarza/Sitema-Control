@@ -27,6 +27,7 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -64,12 +65,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmPensum extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Pensum
-     */
-    
- 
-    
     DefaultTableModel modelopensum;
     ValidarLetras letra;
     File folder;
@@ -81,7 +76,7 @@ public class frmPensum extends javax.swing.JFrame {
         this.modelopensum=((DefaultTableModel)this.tabla_materias.getModel());
          inicio();
           rutaportada="C:\\firmaconstancia\\portadas\\matematicaycomputacion.pdf";
-        cargarprograma();
+        //cargarprograma();
     }
     
     
@@ -206,6 +201,7 @@ private String buscarrhp(String cedula, String codigo)
          lb_fecha.setText(fecha.toLocaleString());
          letra=new ValidarLetras();
          poputTable();
+       lb_s.setForeground(Color.GREEN);
     }
     
     private void eliminarmateria(){
@@ -422,19 +418,16 @@ private String generarcarpeta(String cedula, String nombre){
 	} // end Eliminar
      
      
-   private boolean Existe_fichero(String pArchivo) throws  Exception{
+   private boolean Existe_fichero(String pArchivo){
        boolean resul=false;
-       try {	
-            File fichero = new File(pArchivo);
+      	
+       File fichero = new File(pArchivo);
         if (fichero.exists()){
             resul=true;
             System.out.println("El fichero " + pArchivo + " existe");
-        }else
+        }else{
             System.out.println("Pues va a ser que no");
-        
-       } catch (Exception e) {
-	throw new Exception(e);
-	} // end try
+        }
        return resul;
    }
    
@@ -686,6 +679,11 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         cportada = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         lb_fecha = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lb_e = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lb_s = new javax.swing.JLabel();
+        lb_p = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -752,7 +750,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
 
             },
             new String [] {
-                "Codigo", "Nombre Asignatura"
+                "Codigo", "Nombre Asignatura", "Estatus"
             }
         ));
         jScrollPane1.setViewportView(tabla_materias);
@@ -760,6 +758,9 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
             tabla_materias.getColumnModel().getColumn(0).setMinWidth(70);
             tabla_materias.getColumnModel().getColumn(0).setPreferredWidth(70);
             tabla_materias.getColumnModel().getColumn(0).setMaxWidth(70);
+            tabla_materias.getColumnModel().getColumn(2).setMinWidth(50);
+            tabla_materias.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tabla_materias.getColumnModel().getColumn(2).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -779,7 +780,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 950, 220));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 950, 220));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información Estudiante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanel4.setLayout(new java.awt.GridLayout(7, 2));
@@ -959,6 +960,26 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         lb_fecha.setText(" ");
         jPanel2.add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 210, 20));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Nota:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 40, 20));
+
+        lb_e.setForeground(new java.awt.Color(255, 51, 51));
+        lb_e.setText("“E” No Encontrado");
+        jPanel2.add(lb_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, 20));
+
+        jLabel15.setText("Estatus:");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 150, 20));
+
+        lb_s.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lb_s.setForeground(new java.awt.Color(0, 102, 255));
+        lb_s.setText("“S” Sin Procesar,");
+        jPanel2.add(lb_s, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, 20));
+
+        lb_p.setForeground(new java.awt.Color(37, 226, 38));
+        lb_p.setText("“P” Procesado,");
+        jPanel2.add(lb_p, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, 20));
+
         jScrollPane2.setViewportView(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -969,9 +990,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
 
         pack();
@@ -1164,6 +1183,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
                 if(cb_asigna.getItemCount()>0){
                     String[] arraymateria = cb_asigna.getSelectedItem().toString().split(" - ");
                     filas[1] = arraymateria[1];
+                    filas[2]= "S";
                 }
                 this.modelopensum.addRow(filas);
                 this.tabla_materias.setModel(this.modelopensum);
@@ -1304,6 +1324,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1312,6 +1333,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1322,7 +1344,10 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_codi;
     private javax.swing.JLabel lb_cred;
+    private javax.swing.JLabel lb_e;
     private javax.swing.JLabel lb_fecha;
+    private javax.swing.JLabel lb_p;
+    private javax.swing.JLabel lb_s;
     private javax.swing.JTable tabla_materias;
     private javax.swing.JTextField txt_anograduacion;
     private javax.swing.JTextField txt_cedula;
