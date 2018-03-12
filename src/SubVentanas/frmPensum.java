@@ -202,7 +202,6 @@ private String buscarrhp(String cedula, String codigo)
          lb_fecha.setText(fecha.toLocaleString());
          letra=new ValidarLetras();
          poputTable();
-       lb_s.setForeground(Color.GREEN);
     }
     
     private void eliminarmateria(){
@@ -981,6 +980,7 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         jLabel9.setText("Nota:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 40, 20));
 
+        lb_e.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lb_e.setForeground(new java.awt.Color(255, 51, 51));
         lb_e.setText("“E” No Encontrado");
         jPanel2.add(lb_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, 20));
@@ -988,11 +988,12 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         jLabel15.setText("Estatus:");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 150, 20));
 
-        lb_s.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lb_s.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lb_s.setForeground(new java.awt.Color(0, 102, 255));
         lb_s.setText("“S” Sin Procesar,");
         jPanel2.add(lb_s, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, 20));
 
+        lb_p.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lb_p.setForeground(new java.awt.Color(37, 226, 38));
         lb_p.setText("“P” Procesado,");
         jPanel2.add(lb_p, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, 20));
