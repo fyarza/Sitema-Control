@@ -5,6 +5,7 @@
  */
 package SubVentanas;
 
+import Clases.ColorearFilas;
 import Clases.FooterPiePaginaiText;
 import Clases.HeaderPiePaginaitext;
 import Clases.PDF_modalidad;
@@ -588,7 +589,19 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
          }
      }
      
-     private boolean verificarenlatabla(String cod){
+   private boolean verificarenlatabla(String cod){
+        boolean resul=true;
+        int filas=tabla_materias.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            if(cod.equals(tabla_materias.getValueAt(i,0).toString())){
+                resul=false;
+                i=filas;
+            }
+        }
+        return resul;
+    }
+   
+   private boolean verificarPDFMateria(String cod){
         boolean resul=true;
         int filas=tabla_materias.getRowCount();
         for (int i = 0; i < filas; i++) {
@@ -926,28 +939,32 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cprogramasa)
                     .addComponent(cmodalidade))
-                .addGap(119, 119, 119)
+                .addGap(43, 43, 43)
                 .addComponent(btn_generarpdf, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(97, 97, 97))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cpensum)
-                            .addComponent(cvigencia)
-                            .addComponent(cprogramasa))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cvigenciasing)
-                            .addComponent(cmodalidade)
-                            .addComponent(btn_generarpdf)
-                            .addComponent(cportada)))
-                    .addComponent(btn_agregarmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cpensum)
+                                    .addComponent(cvigencia)
+                                    .addComponent(cprogramasa))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cvigenciasing)
+                                    .addComponent(cmodalidade)
+                                    .addComponent(cportada)))
+                            .addComponent(btn_agregarmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btn_generarpdf)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 950, 70));
@@ -1177,17 +1194,21 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
         
         if (verificarenlatabla(this.lb_codi.getText())){
           try {
-                String[] filas = new String[2];
-                
+                String[] filas = new String[3];
                 filas[0] = this.lb_codi.getText();
                 if(cb_asigna.getItemCount()>0){
                     String[] arraymateria = cb_asigna.getSelectedItem().toString().split(" - ");
                     filas[1] = arraymateria[1];
                     filas[2]= "S";
                 }
+                filas[0]="IA-5023";
+                filas[1]= "MATERIA PRUEBA";
+                filas[2]= "S";
                 this.modelopensum.addRow(filas);
                 this.tabla_materias.setModel(this.modelopensum);
                 this.tabla_materias.repaint();
+                ColorearFilas colorear = new ColorearFilas();
+               this.tabla_materias.setDefaultRenderer (Object.class, colorear);
            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
