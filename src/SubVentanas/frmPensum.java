@@ -765,6 +765,11 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
                 "Codigo", "Nombre Asignatura", "Estatus"
             }
         ));
+        tabla_materias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabla_materiasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_materias);
         if (tabla_materias.getColumnModel().getColumnCount() > 0) {
             tabla_materias.getColumnModel().getColumn(0).setMinWidth(70);
@@ -1292,6 +1297,10 @@ private void generarvigenciacongrad(String ruta, ProgramaObj programa) {
              evt.consume();
          }
     }//GEN-LAST:event_txt_peridoinicioKeyTyped
+
+    private void tabla_materiasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_materiasMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla_materiasMousePressed
 
     /**
      * @param args the command line arguments
